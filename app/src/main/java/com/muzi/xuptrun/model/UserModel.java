@@ -1,7 +1,4 @@
 package com.muzi.xuptrun.model;
-
-import android.util.SparseArray;
-
 import com.muzi.xuptrun.bean.UserBean;
 
 /**
