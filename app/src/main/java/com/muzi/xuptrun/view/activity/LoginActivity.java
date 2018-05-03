@@ -1,4 +1,4 @@
-package com.muzi.xuptrun;
+package com.muzi.xuptrun.view.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +7,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.avos.avoscloud.AVException;
+import com.avos.avoscloud.AVUser;
+import com.avos.avoscloud.LogInCallback;
+import com.muzi.xuptrun.R;
 
 /**
  * Created by muzi on 2018/4/19.
@@ -33,8 +39,20 @@ public class LoginActivity extends AppCompatActivity{
             public void onClick(View v) {
                 userName = ed_username.getText().toString();
                 passWord = ed_password.getText().toString();
-                startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                LoginActivity.this.finish();
+                AVUser.logInInBackground(userName, passWord, new LogInCallback<AVUser>() {
+                    @Override
+                    public void done(AVUser avUser, AVException e) {
+                        if (e == null) {
+                            // 成功
+                            Toast.makeText(LoginActivity.this,"成功~",Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                            LoginActivity.this.finish();
+                        } else {
+                            //
+                            Toast.makeText(LoginActivity.this,"失败~",Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
             }
         });
 
@@ -46,12 +64,13 @@ public class LoginActivity extends AppCompatActivity{
             }
         });
 
-//        tv_forget.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startActivity(new Intent(LoginActivity.this, ForgetActivity.class));
-//            }
-//        });
+        tv_forget.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LoginActivity.this, ForgetActivity.class));
+                LoginActivity.this.finish();
+            }
+        });
     }
 
     void initView() {

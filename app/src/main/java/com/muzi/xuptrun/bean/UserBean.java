@@ -1,31 +1,23 @@
 package com.muzi.xuptrun.bean;
 
+
 /**
  * Created by muzi on 2018/4/17.
  */
 
-public class UserBean {
-    //用户账号
+public class UserBean{
+    //用户名
     private String userName;
     //用户密码
     private String passWord;
     //用户邮箱
     private String email;
-    //用户身高
+    //用户身高cm
     private int height;
-    //用户体重
-    private int weight;
-    //每天的运动目标
-    private int target;
-
-    public UserBean(String userName, String passWord, String email, int height, int weight, int target) {
-        this.userName = userName;
-        this.passWord = passWord;
-        this.email = email;
-        this.height = height;
-        this.weight = weight;
-        this.target = target;
-    }
+    //用户体重kg
+    private double weight;
+    //每天的运动目标km
+    private double target;
 
     public String getUserName() {
         return userName;
@@ -59,19 +51,19 @@ public class UserBean {
         this.height = height;
     }
 
-    public int getWeight() {
+    public double getWeight() {
         return weight;
     }
 
-    public void setWeight(int weight) {
+    public void setWeight(double weight) {
         this.weight = weight;
     }
 
-    public int getTarget() {
+    public double getTarget() {
         return target;
     }
 
-    public void setTarget(int target) {
+    public void setTarget(double target) {
         this.target = target;
     }
 }

@@ -7,7 +7,7 @@ import com.muzi.xuptrun.bean.UserBean;
 
 public class UserModel implements IUserModel {
 
-    //用户账号
+    //用户名
     private String mUserName;
     //用户密码
     private String mPassWord;
@@ -16,9 +16,9 @@ public class UserModel implements IUserModel {
     //用户身高
     private int mHeight;
     //用户体重
-    private int mWeight;
+    private double mWeight;
     //每天的运动目标
-    private int mTarget;
+    private double mTarget;
 
     @Override
     public void setUserName(String userName) {
@@ -41,12 +41,12 @@ public class UserModel implements IUserModel {
     }
 
     @Override
-    public void setWeight(int weight) {
+    public void setWeight(double weight) {
         mWeight = weight;
     }
 
     @Override
-    public void setTarget(int target) {
+    public void setTarget(double target) {
         mTarget = target;
     }
 

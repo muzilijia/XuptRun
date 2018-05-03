@@ -1,12 +1,14 @@
-package com.muzi.xuptrun;
+package com.muzi.xuptrun.view.activity;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentTabHost;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TabHost;
-import com.muzi.xuptrun.view.fragment.FirstFragment;
-import com.muzi.xuptrun.view.fragment.ThirdFragment;
-import com.muzi.xuptrun.view.fragment.SecondFragment;
+
+import com.muzi.xuptrun.R;
+import com.muzi.xuptrun.view.fragment.FirstFragment.FirstFragment;
+import com.muzi.xuptrun.view.fragment.ThirdFragment.ThirdFragment;
+import com.muzi.xuptrun.view.fragment.secondFragment.SecondFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,13 +35,13 @@ public class MainActivity extends AppCompatActivity {
         mFragmentList = new ArrayList<>();
         mFragmentList.add(new TabItem(
                 R.drawable.n_1,
-                R.drawable.y_1, "first",
+                R.drawable.y_1, "记录",
                 FirstFragment.class
         ));
 
         mFragmentList.add(new TabItem(
                 R.drawable.n_2,
-                R.drawable.y_2, "second",
+                R.drawable.y_2, "运动",
                 SecondFragment.class
         ));
 

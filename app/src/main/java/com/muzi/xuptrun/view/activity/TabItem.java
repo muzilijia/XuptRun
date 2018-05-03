@@ -1,4 +1,4 @@
-package com.muzi.xuptrun;
+package com.muzi.xuptrun.view.activity;
 
 import android.content.Context;
 import android.graphics.Color;
