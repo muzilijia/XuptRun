@@ -30,33 +30,38 @@
             android:src="@drawable/a"/>
 
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
         android:layout_marginTop="1dp"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp">
+        android:background="@color/white"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginLeft="20dp"
             android:text="昵称"
-            android:textSize="15sp"/>
+            android:textSize="15sp" />
+
         <ImageView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"/>
-        <TextView
+            android:layout_weight="1" />
+
+        <EditText
             android:id="@+id/t_username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginRight="20dp"
-            android:text="绵绵"
-            android:textSize="15sp"/>
+            android:background="@null"
+            android:textSize="15sp" />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -75,13 +80,13 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"/>
-        <TextView
+        <EditText
             android:id="@+id/t_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginRight="20dp"
-            android:text="934762349@qq.com"
+            android:background="@null"
             android:textSize="15sp"/>
     </LinearLayout>
     <ImageView
@@ -100,19 +105,19 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginLeft="20dp"
-            android:text="身高"
+            android:text="身高/cm"
             android:textSize="15sp"/>
         <ImageView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"/>
-        <TextView
+        <EditText
             android:id="@+id/t_height"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginRight="20dp"
-            android:text="160cm"
+            android:background="@null"
             android:textSize="15sp"/>
     </LinearLayout>
     <LinearLayout
@@ -127,19 +132,19 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginLeft="20dp"
-            android:text="体重"
+            android:text="体重/kg"
             android:textSize="15sp"/>
         <ImageView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"/>
-        <TextView
+        <EditText
             android:id="@+id/t_weight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginRight="20dp"
-            android:text="51.5kg"
+            android:background="@null"
             android:textSize="15sp"/>
     </LinearLayout>
     <LinearLayout
@@ -154,19 +159,19 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginLeft="20dp"
-            android:text="运动目标"
+            android:text="运动目标/公里"
             android:textSize="15sp"/>
         <ImageView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"/>
-        <TextView
+        <EditText
             android:id="@+id/t_target"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginRight="20dp"
-            android:text="5公里"
+            android:background="@null"
             android:textSize="15sp"/>
     </LinearLayout>
     <Button
@@ -176,7 +181,19 @@
         android:layout_marginTop="10dp"
         android:paddingLeft="20dp"
         android:background="@color/white"
-        android:text="编辑"
+        android:text="更新信息"
+        android:textSize="15sp"
+        android:textColor="#6e6e6e"
+        android:gravity="left|center"/>
+    <Button
+        android:id="@+id/but_exit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:layout_marginBottom="1dp"
+        android:paddingLeft="20dp"
+        android:background="@color/white"
+        android:text="退出登陆"
         android:textSize="15sp"
         android:textColor="#6e6e6e"
         android:gravity="left|center"/>

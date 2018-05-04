@@ -13,11 +13,11 @@ public class UserBean{
     //用户邮箱
     private String email;
     //用户身高cm
-    private int height;
+    private String height;
     //用户体重kg
-    private double weight;
+    private String weight;
     //每天的运动目标km
-    private double target;
+    private String target;
 
     public String getUserName() {
         return userName;
@@ -43,27 +43,27 @@ public class UserBean{
         this.email = email;
     }
 
-    public int getHeight() {
+    public String getHeight() {
         return height;
     }
 
-    public void setHeight(int height) {
+    public void setHeight(String height) {
         this.height = height;
     }
 
-    public double getWeight() {
+    public String getWeight() {
         return weight;
     }
 
-    public void setWeight(double weight) {
+    public void setWeight(String weight) {
         this.weight = weight;
     }
 
-    public double getTarget() {
+    public String getTarget() {
         return target;
     }
 
-    public void setTarget(double target) {
+    public void setTarget(String target) {
         this.target = target;
     }
 }

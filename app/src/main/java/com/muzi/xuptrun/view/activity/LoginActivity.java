@@ -34,6 +34,13 @@ public class LoginActivity extends AppCompatActivity{
 
         initView();
 
+        AVUser currentUser = AVUser.getCurrentUser();
+        if (currentUser != null) {
+            // 跳转到首页
+            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+            LoginActivity.this.finish();
+        }
+
         but_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -44,12 +51,12 @@ public class LoginActivity extends AppCompatActivity{
                     public void done(AVUser avUser, AVException e) {
                         if (e == null) {
                             // 成功
-                            Toast.makeText(LoginActivity.this,"成功~",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this,"登陆成功~",Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(LoginActivity.this, MainActivity.class));
                             LoginActivity.this.finish();
                         } else {
-                            //
-                            Toast.makeText(LoginActivity.this,"失败~",Toast.LENGTH_SHORT).show();
+                            //失败
+                            Toast.makeText(LoginActivity.this,"登陆失败~",Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
