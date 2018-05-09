@@ -28,7 +28,7 @@
 
         <service android:name="com.amap.api.location.APSService" />
 
-        <activity android:name=".view.activity.LoginActivity">
+        <activity android:name=".activity.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -36,9 +36,11 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".view.activity.MainActivity"/>
-        <activity android:name=".view.activity.RegisterActivity"/>
-        <activity android:name=".view.activity.ForgetActivity"/>
+        <activity android:name=".activity.main.MainActivity"/>
+        <activity android:name=".activity.RegisterActivity"/>
+        <activity android:name=".activity.ForgetActivity"/>
+        <activity android:name=".activity.run.RunActivity"/>
+        <activity android:name=".activity.history.HistoryShowActivity"/>
     </application>
 
 </manifest>
