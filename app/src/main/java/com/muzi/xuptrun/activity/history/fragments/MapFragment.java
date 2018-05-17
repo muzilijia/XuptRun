@@ -24,7 +24,7 @@ public class MapFragment extends Fragment {
     private AmapImpl aImpl;
     private Trace trace;
 
-    private TextView text_distance, text_calorie, text_duration, text_vector;
+    private TextView text_distance, text_calorie, text_duration, text_vector, text_type;
 
     public static MapFragment newInstance() {
         MapFragment fragment = new MapFragment();
@@ -55,6 +55,7 @@ public class MapFragment extends Fragment {
         text_duration = (TextView) view.findViewById(R.id.text_alltime);
         text_calorie = (TextView) view.findViewById(R.id.text_calorie);
         text_vector = (TextView) view.findViewById(R.id.text_vector);
+        text_type = (TextView) view.findViewById(R.id.text_type);
 
     }
 
@@ -79,12 +80,13 @@ public class MapFragment extends Fragment {
     }
 
 
-    public void upDataShowing(String distance,String duration,String vector,String calorie){
+    public void upDataShowing(String distance,String duration,String vector,String calorie,String type){
 
         text_distance.setText(distance);
-        text_duration.setText(duration );
+        text_duration.setText(duration);
         text_calorie.setText(calorie);
-        text_vector.setText(vector );
+        text_vector.setText(vector);
+        text_type.setText(type);
 
     }
 

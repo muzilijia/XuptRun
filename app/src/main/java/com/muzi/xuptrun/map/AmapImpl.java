@@ -72,11 +72,11 @@ public class AmapImpl extends SubMap {
     }
 
     //保存跑步数据
-    public void saveRunningData() {
+    public void saveRunningData(String str) {
         RunDataSaveUtil.getInstance(activity)
                 .saveRecord(location
                         .getRecord()
-                        .getPathline(),mStartTime, location.getDuration());
+                        .getPathline(), str, mStartTime, location.getDuration());
     }
 
     @Override

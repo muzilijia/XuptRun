@@ -1,5 +1,6 @@
 package com.muzi.xuptrun.activity.run.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -61,7 +62,13 @@ public class AMapShowFragment extends Fragment {
 
     public void closeLocationWithSaveRunData(){
 
-        aMapImpl.saveRunningData();
+        //获取运动类型
+        String type = null;
+        Intent recordIntent = getActivity().getIntent();
+        if (recordIntent != null) {
+            type = recordIntent.getStringExtra("type");
+        }
+        aMapImpl.saveRunningData(type);
         aMapImpl.closeLocation();
 
     }

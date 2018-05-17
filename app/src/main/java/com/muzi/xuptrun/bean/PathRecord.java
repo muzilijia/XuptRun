@@ -32,6 +32,7 @@ public class PathRecord {
 	private float mDuration;
 	private float mAveragespeed;
 	private float mCalorie;
+	private String mType;
 
 	public String getTime() {
 		return time;
@@ -41,7 +42,13 @@ public class PathRecord {
 		this.time = time;
 	}
 
+	public String getType() {
+		return mType;
+	}
 
+	public void setType(String mType) {
+		this.mType = mType;
+	}
 
 	public PathRecord() {
 
@@ -128,9 +135,9 @@ public class PathRecord {
 	public String toString() {
 
 		StringBuilder record = new StringBuilder();
-//		record.append("recordSize:" + getPathline().size() + ", ");
 		record.append("距离:" + getDistance() + "m   ");
-		record.append("时长:" + getDuration() + "s");
+		record.append("时长:" + getDuration() + "s   ");
+		record.append("运动类型:" + getType());
 		return record.toString();
 	}
 }

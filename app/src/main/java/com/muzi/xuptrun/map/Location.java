@@ -109,6 +109,9 @@ public class Location implements LocationSource, AMapLocationListener, SensorEve
         record.setDate(RunDataModelUtil.getcueDate(System.currentTimeMillis()));
     }
 
+    /**
+     * 高德定位回调
+     */
     @Override
     public void onLocationChanged(AMapLocation aMapLocation) {
         if (mListener != null && aMapLocation != null) {
@@ -173,11 +176,13 @@ public class Location implements LocationSource, AMapLocationListener, SensorEve
             mLocationOption = new AMapLocationClientOption();
             //设置定位回调监听
             mlocationClient.setLocationListener(this);
-            //设置为高精度定位模式
+            //设置为高精度定位模式，Battery_Saving为低功耗模式，Device_Sensors是仅设备模式
             mLocationOption.setLocationMode(AMapLocationClientOption.AMapLocationMode.Hight_Accuracy);
-            //设置定位参数
+            //设置定位间隔,单位毫秒,默认为1000ms
             mLocationOption.setInterval(1000);
+            //设置是否只定位一次,默认为false
             mLocationOption.setSensorEnable(true);
+            //设置定位参数
             mlocationClient.setLocationOption(mLocationOption);
             /**
              * 设置是否优先返回GPS定位结果，如果30秒内GPS没有返回定位结果则进行网络定位

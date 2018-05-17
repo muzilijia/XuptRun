@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import lecho.lib.hellocharts.gesture.ZoomType;
 import lecho.lib.hellocharts.listener.ColumnChartOnValueSelectListener;
 import lecho.lib.hellocharts.model.Axis;
 import lecho.lib.hellocharts.model.AxisValue;
@@ -62,12 +63,12 @@ public class ChartFragment extends Fragment {
         // TODO Auto-generated method stub
 
         View view = inflater.inflate(R.layout.fragment_history_chart, container, false);
-//
-//        initView(view);
-//
-//        generateColumnData();
-//
-//        readDataFromDB();
+
+        initView(view);
+
+        generateColumnData();
+
+        readDataFromDB();
 
         return view;
     }
@@ -105,12 +106,12 @@ public class ChartFragment extends Fragment {
 
 
     private void initView(View view) {
-//
-//        columnChart = (ColumnChartView) view.findViewById(R.id.columnchart);
-//        text_chart_distance = (TextView) view.findViewById(R.id.text_chart_distance);
-//        text_chart_duration = (TextView) view.findViewById(R.id.text_char_alltime);
-//        text_chart_calorie = (TextView) view.findViewById(R.id.text_chart_calorie);
-//        text_chart_vector = (TextView) view.findViewById(R.id.text_chart_vector);
+
+        columnChart = (ColumnChartView) view.findViewById(R.id.columnchart);
+        text_chart_distance = (TextView) view.findViewById(R.id.text_chart_distance);
+        text_chart_duration = (TextView) view.findViewById(R.id.text_char_alltime);
+        text_chart_calorie = (TextView) view.findViewById(R.id.text_chart_calorie);
+        text_chart_vector = (TextView) view.findViewById(R.id.text_chart_vector);
 
     }
 

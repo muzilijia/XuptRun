@@ -10,10 +10,6 @@ import android.widget.TextView;
 
 import com.muzi.xuptrun.R;
 
-/**
- * Created by Adminis on 2017/3/15.
- */
-
 public class RunDataShowFragment extends Fragment {
 
     static RunDataShowFragment runDataShowFragment;

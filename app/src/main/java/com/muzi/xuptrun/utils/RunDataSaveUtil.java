@@ -10,11 +10,6 @@ import com.muzi.xuptrun.bean.RunData;
 
 import java.util.List;
 
-
-/**
- * Created by Adminis on 2017/3/27.
- */
-
 public class RunDataSaveUtil {
 
     private DBUtil DbHepler;
@@ -40,7 +35,7 @@ public class RunDataSaveUtil {
     /**
      * 保存运动数据和轨迹
      */
-    public void saveRecord(List<AMapLocation> list, long mStartTime , long alltime) {
+    public void saveRecord(List<AMapLocation> list, String type, long mStartTime , long alltime) {
         if (list != null && list.size() > 0) {
 
             float duration = alltime;
@@ -67,6 +62,7 @@ public class RunDataSaveUtil {
             data.setVector(average);
             data.setCalorie(10);
             data.setDate_mouth(mouth);
+            data.setType(type);
 
             PathRecord record = new PathRecord();
 
@@ -76,6 +72,7 @@ public class RunDataSaveUtil {
             record.setDistance(distance);
             record.setDate(date);
             record.setDuration(duration);
+            record.setType(type);
 
             Log.i("test", "v " + average);
 

@@ -42,6 +42,7 @@ public class DBUtil {
 	public static final String RUNDATA_KEY_DISTANCE = "distance";
 	public static final String RUNDATA_KEY_DURATION = "duration";
 	public static final String RUNDATA_KEY_SPEED = "speed";
+	public static final String RECORD_KEY_TYPE = "type";
 
 	private Context mContext = null;
 	private DatabaseHelper dbHelper;
@@ -66,6 +67,7 @@ public class DBUtil {
 			+ "speed float,"
 			+ "calorie float,"
 			+ "time String,"
+			+ "type STRING,"
 			+ "date STRING" + ");";
 
 	public static final String RUNDATA_CREATE = "create table if not exists rundata ("
@@ -75,7 +77,8 @@ public class DBUtil {
 			+"duration float,"
 			+"calorie float,"
 			+"speed float,"
-			+"distance float)";
+			+"distance float,"
+			+"type text);";
 
 
 	public DBUtil(Context ctx) {
@@ -109,7 +112,7 @@ public class DBUtil {
 	 * 数据库存入一条轨迹
 	 *
 	 */
-	public long createRecord(PathRecord record , String pathline , String stratpoint , String endpoint ) {
+	public long createRecord(PathRecord record , String pathline , String stratpoint , String endpoint) {
 
 		ContentValues args = new ContentValues();
 
@@ -122,6 +125,7 @@ public class DBUtil {
 		args.put("endpoint", endpoint);
 		args.put("date", record.getDate());
 		args.put("time", record.getTime());
+		args.put("type", record.getType());
 
 		return db.insert(RECORD_TABLE, null, args);
 	}
@@ -160,6 +164,9 @@ public class DBUtil {
 			record.setAveragespeed(allRecordCursor.getFloat(allRecordCursor
 					.getColumnIndex(RECORD_KEY_SPEED)));
 
+			record.setType(allRecordCursor.getString(allRecordCursor
+					.getColumnIndex(RECORD_KEY_TYPE)));
+
 			String lines = allRecordCursor.getString(allRecordCursor
 					.getColumnIndex(RECORD_KEY_LINE));
 
@@ -175,7 +182,25 @@ public class DBUtil {
 		}
 		// 使用Reverse方法可以根据元素的自然顺序 对指定列表按降序进行排序。
 		Collections.reverse(allRecord);
+
 		return allRecord;
+	}
+
+	//查询每个运动类型的总公里
+	public float queryDistanceByType(List<PathRecord> allRecord, String type){
+		float dis = 0;
+		for (int i=0; i<allRecord.size(); i++) {
+			if (allRecord.get(i).getType().equals(type)) {
+				dis += allRecord.get(i).getDistance();
+			}
+			if (allRecord.get(i).getType().equals(type)) {
+				dis += allRecord.get(i).getDistance();
+			}
+			if (allRecord.get(i).getType().equals(type)) {
+				dis += allRecord.get(i).getDistance();
+			}
+		}
+		return dis;
 	}
 
 	/**
@@ -206,6 +231,8 @@ public class DBUtil {
 					.getColumnIndex(RECORD_KEY_TIME)));
 			record.setAveragespeed(cursor.getFloat(cursor
 					.getColumnIndex(RECORD_KEY_SPEED)));
+			record.setType(cursor.getString(cursor
+					.getColumnIndex(RECORD_KEY_TYPE)));
 
 			String lines = cursor.getString(cursor
 					.getColumnIndex(DBUtil.RECORD_KEY_LINE));
@@ -248,6 +275,8 @@ public class DBUtil {
 					.getColumnIndex(RECORD_KEY_TIME)));
 			record.setAveragespeed(cursor.getFloat(cursor
 					.getColumnIndex(RECORD_KEY_SPEED)));
+			record.setType(cursor.getString(cursor
+					.getColumnIndex(RECORD_KEY_TYPE)));
 
 			String lines = cursor.getString(cursor
 					.getColumnIndex(DBUtil.RECORD_KEY_LINE));
@@ -274,7 +303,7 @@ public class DBUtil {
 				RECORD_KEY_ROWID, RECORD_KEY_DISTANCE,
 				RECORD_KEY_DURATION, RECORD_KEY_SPEED,
 				RECORD_KEY_LINE, RECORD_KEY_STRAT, RECORD_KEY_END,
-				RECORD_KEY_DATE, RECORD_KEY_CALORIE,RECORD_KEY_TIME};
+				RECORD_KEY_DATE, RECORD_KEY_CALORIE, RECORD_KEY_TIME, RECORD_KEY_TYPE};
 	}
 
 	/**
@@ -295,12 +324,14 @@ public class DBUtil {
 					float calorie = cursor.getFloat(cursor.getColumnIndex(DBUtil.RUNDATA_KEY_COLORIE)) + data.getCalorie();
 					float distance = cursor.getFloat(cursor.getColumnIndex(DBUtil.RUNDATA_KEY_DISTANCE)) + data.getDistance();
 					float vector = distance / durtion;
+					String type = cursor.getString(cursor.getColumnIndex(DBUtil.RECORD_KEY_TYPE));
 
 					ContentValues values = new ContentValues();
 					values.put(DBUtil.RUNDATA_KEY_DURATION, durtion);
 					values.put(DBUtil.RUNDATA_KEY_COLORIE, calorie);
 					values.put(DBUtil.RUNDATA_KEY_SPEED, vector);
 					values.put(DBUtil.RUNDATA_KEY_DISTANCE, distance);
+					values.put(DBUtil.RECORD_KEY_TYPE, type);
 					db.update(DBUtil.RUNDATA_TABLE, values, "id=?", new String[]{id + ""});
 
 					return;
@@ -326,6 +357,7 @@ public class DBUtil {
 			values.put(DBUtil.RUNDATA_KEY_COLORIE, data.getCalorie());
 			values.put(DBUtil.RUNDATA_KEY_SPEED, data.getVector());
 			values.put(DBUtil.RUNDATA_KEY_DISTANCE, data.getDistance());
+			values.put(DBUtil.RECORD_KEY_TYPE, data.getType());
 			db.insert(RUNDATA_TABLE, null, values);
 		}
 	}
@@ -350,6 +382,7 @@ public class DBUtil {
 				Float calorie = cursor.getFloat(cursor.getColumnIndex(DBUtil.RUNDATA_KEY_COLORIE));
 				Float vector = cursor.getFloat(cursor.getColumnIndex(DBUtil.RUNDATA_KEY_SPEED));
 				Float distance = cursor.getFloat(cursor.getColumnIndex(DBUtil.RUNDATA_KEY_DISTANCE));
+				String type = cursor.getString(cursor.getColumnIndex(DBUtil.RECORD_KEY_TYPE));
 
 				RunData runData = new RunData();
 				runData.setId(id);
@@ -358,6 +391,7 @@ public class DBUtil {
 				runData.setCalorie(calorie);
 				runData.setVector(vector);
 				runData.setDistance(distance);
+				runData.setType(type);
 
 				datas.add(runData);
 

@@ -62,7 +62,7 @@
                     android:layout_centerInParent="true"
                     android:layout_gravity="center_horizontal"
                     android:gravity="center"
-                    android:text="没有运动数据，快去跑步吧！" />
+                    android:text="没有运动数据，快去运动吧！" />
 
             </RelativeLayout>
 

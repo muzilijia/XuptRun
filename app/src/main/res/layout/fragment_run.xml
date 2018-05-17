@@ -5,11 +5,12 @@
     android:orientation="vertical">
 
     <TextView
+        android:id="@+id/tv_rundis"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_gravity="center"
-        android:text="27.68"
+        android:text="00.00"
         android:textSize="80sp"/>
     <TextView
         android:layout_width="wrap_content"

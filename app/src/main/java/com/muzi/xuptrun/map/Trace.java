@@ -57,8 +57,9 @@ public class Trace {
         String duration = RunDataModelUtil.timeFormat((long) record.getDuration());
         String calorie = df.format(record.getCalorie() / 1000) + "k ca";
         String vector = df.format(record.getAveragespeed()) + " m/s";
+        String type = record.getType();
 
-        mapFragment.upDataShowing(distance, duration, vector, calorie);
+        mapFragment.upDataShowing(distance, duration, vector, calorie, type);
 
         dbhelper.close();
 
