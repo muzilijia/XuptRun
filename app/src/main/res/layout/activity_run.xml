@@ -11,18 +11,24 @@
             android:id="@+id/but_pause"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="暂停"/>
+            android:layout_weight="1"
+            android:text="暂停"
+            android:background="@null"/>
 
         <Button
             android:id="@+id/but_end"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="结束"/>
+            android:layout_weight="1"
+            android:text="结束"
+            android:background="@null"/>
         <Button
             android:id="@+id/but_changemap"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="切换地图界面"/>
+            android:layout_weight="1"
+            android:text="切换地图界面"
+            android:background="@null"/>
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout"
